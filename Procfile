@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/lazy-cyclist -Dhttp.port=${PORT}
+web: dist/universal/stage/bin/lazy-cyclist -Dhttp.port=${PORT}
