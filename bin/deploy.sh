@@ -11,7 +11,7 @@ echo "Build project: DONE"
 
 echo "Move deliverable: START"
 mkdir dist/universal
-cp -R target/universal dist/universal
+cp -R target/universal dist
 echo "Move deliverable: DONE"
 
 echo "Push to master: START"
