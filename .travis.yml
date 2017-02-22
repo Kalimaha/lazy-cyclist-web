@@ -1,6 +1,1 @@
 language: scala
-scala: 2.11.7
-
-before_script: sbt compile stage
-
-script: sbt test
