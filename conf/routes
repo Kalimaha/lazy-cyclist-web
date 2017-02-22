@@ -1,1 +1,1 @@
-GET     /   controllers.Application.index
+GET     /:from/:to  controllers.Router.route(from, to)
