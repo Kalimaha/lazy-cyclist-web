@@ -1,6 +1,8 @@
+package core
+
+import core.Core._
 import org.scalatest.FunSpec
 import repositories.{DirectionsRepository, ElevationRepository}
-import Core._
 
 class TestCore extends FunSpec {
   describe(".elevationProfile") {

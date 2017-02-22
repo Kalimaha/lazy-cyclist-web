@@ -1,12 +1,13 @@
+package core
+
 import models.Models._
 import parsers.DirectionsParser._
 import parsers.ElevationParser._
-import repositories.{DirectionsRepository, ElevationRepository}
 import repositories.DirectionsRepository._
+import repositories.{DirectionsRepository, ElevationRepository}
 import utils.MathUtils._
 
 object Core {
-
   def elevationProfile(from: String, to: String, dr: DirectionsRepository, er: ElevationRepository): Either[String, List[EnhancedElevationProfile]] = {
     for {
       valid             <- validate(from, to).right

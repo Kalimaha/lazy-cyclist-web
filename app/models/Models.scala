@@ -4,7 +4,6 @@ import utils.MathUtils
 
 
 object Models {
-
   case class Route(steps: List[Step])
   case class XY(x: Double, y: Double)
   case class LatLon(lat: Double, lon: Double)
