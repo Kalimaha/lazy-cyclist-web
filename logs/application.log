@@ -1,3 +1,61 @@
-2017-02-22 15:21:18,104 [INFO] from play.core.server.NettyServer in pool-4-thread-3 - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
-2017-02-22 15:21:31,940 [WARN] from application in ForkJoinPool-1-worker-1 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
-2017-02-22 15:21:32,519 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
+2017-02-22 15:38:34,331 [INFO] from play.core.server.NettyServer in pool-4-thread-1 - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2017-02-22 15:38:51,824 [WARN] from application in ForkJoinPool-1-worker-1 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2017-02-22 15:38:52,332 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
+2017-02-22 15:38:52,453 [ERROR] from application in application-akka.actor.default-dispatcher-5 - 
+
+! @735ppnbk3 - Internal server error, for (GET) [/511%20Church%20St%20Melbourne/2%20McGoun%20St%20Melbourne] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[NoSuchElementException: None.get]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:265) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:191) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.GlobalSettings$class.onError(GlobalSettings.scala:179) [play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.WithFilters.onError(Filters.scala:93) [play_2.11-2.4.3.jar:2.4.3]
+	at play.api.http.GlobalSettingsHttpErrorHandler.onServerError(HttpErrorHandler.scala:94) [play_2.11-2.4.3.jar:2.4.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$9$$anonfun$apply$1.applyOrElse(PlayDefaultUpstreamHandler.scala:158) [play-netty-server_2.11-2.4.3.jar:2.4.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$9$$anonfun$apply$1.applyOrElse(PlayDefaultUpstreamHandler.scala:155) [play-netty-server_2.11-2.4.3.jar:2.4.3]
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:36) [scala-library-2.11.8.jar:na]
+	at scala.util.Failure$$anonfun$recover$1.apply(Try.scala:216) [scala-library-2.11.8.jar:na]
+	at scala.util.Try$.apply(Try.scala:192) [scala-library-2.11.8.jar:na]
+	at scala.util.Failure.recover(Try.scala:216) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.Future$$anonfun$recover$1.apply(Future.scala:326) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.Future$$anonfun$recover$1.apply(Future.scala:326) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.8.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.executeScheduled(Execution.scala:109) [play-iteratees_2.11-2.4.3.jar:2.4.3]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:71) [play-iteratees_2.11-2.4.3.jar:2.4.3]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.8.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40) [akka-actor_2.11-2.3.13.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:397) [akka-actor_2.11-2.3.13.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.8.jar:na]
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347) ~[scala-library-2.11.8.jar:na]
+	at scala.None$.get(Option.scala:345) ~[scala-library-2.11.8.jar:na]
+	at controllers.Router$.directionsAPIKey(Router.scala:21) ~[classes/:na]
+	at controllers.Router$$anonfun$route$1.apply(Router.scala:10) ~[classes/:na]
+	at controllers.Router$$anonfun$route$1.apply(Router.scala:9) ~[classes/:na]
+	at play.api.mvc.ActionBuilder$$anonfun$apply$17.apply(Action.scala:439) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.ActionBuilder$$anonfun$apply$17.apply(Action.scala:439) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.ActionBuilder$$anonfun$apply$16.apply(Action.scala:408) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.ActionBuilder$$anonfun$apply$16.apply(Action.scala:407) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.Action$.invokeBlock(Action.scala:533) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.Action$.invokeBlock(Action.scala:530) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.ActionBuilder$$anon$1.apply(Action.scala:493) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:105) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:105) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:104) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:103) ~[play_2.11-2.4.3.jar:2.4.3]
+	at scala.Option.map(Option.scala:146) ~[scala-library-2.11.8.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:103) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:96) ~[play_2.11-2.4.3.jar:2.4.3]
+	at play.api.libs.iteratee.DoneIteratee$$anonfun$mapM$2.apply(Iteratee.scala:741) ~[play-iteratees_2.11-2.4.3.jar:2.4.3]
+	at play.api.libs.iteratee.DoneIteratee$$anonfun$mapM$2.apply(Iteratee.scala:741) ~[play-iteratees_2.11-2.4.3.jar:2.4.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.8.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.8.jar:na]
+	... 6 common frames omitted
