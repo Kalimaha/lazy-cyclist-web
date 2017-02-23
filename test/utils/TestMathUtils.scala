@@ -28,4 +28,14 @@ class TestMathUtils extends FunSpec {
       assert(accumulate(values) == expected)
     }
   }
+
+  describe(".midpoint") {
+    val a = LatLon(41.54, 12.30)
+    val b = LatLon(40.50, 14.15)
+    val c = LatLon(41.36997999996239, 13.382173000045697)
+
+    it("calculates the midpoint between two locations") {
+      assert(midpoint(a, b) == c)
+    }
+  }
 }

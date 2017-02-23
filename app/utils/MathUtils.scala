@@ -20,6 +20,7 @@ object MathUtils {
   def slope(from: XY, to: XY): Double = 100 * (to.y - from.y) / (to.x - from.x)
 
   def deg2rad(deg: Double): Double = deg * Math.PI / 180
+  def rad2deg(deg: Double): Double = deg * 180 / Math.PI
 
   def accumulate(values: List[Double]): List[Double] = {
     @tailrec
@@ -29,5 +30,33 @@ object MathUtils {
     }
 
     loop(values, 0, List()).reverse
+  }
+
+  def midpoint(a: LatLon, b: LatLon): LatLon = {
+    val lat_1 = deg2rad(a.lat)
+    val lon_1 = deg2rad(a.lon)
+    val lat_2 = deg2rad(b.lat)
+    val lon_2 = deg2rad(b.lon)
+
+    val x1 = Math.cos(lat_1) * Math.cos(lon_1)
+    val y1 = Math.cos(lat_1) * Math.sin(lon_1)
+    val z1 = Math.sin(lat_1)
+
+    val x2 = Math.cos(lat_2) * Math.cos(lon_2)
+    val y2 = Math.cos(lat_2) * Math.sin(lon_2)
+    val z2 = Math.sin(lat_2)
+
+    val x = (x1 + x2) / 2
+    val y = (y1 + y2) / 2
+    val z = (z1 + z2) / 2
+
+    val lon = Math.atan2(y, x)
+    val hyp = Math.sqrt(x * x + y * y)
+    val lat = Math.atan2(z, hyp)
+
+    val lat_adjustment = 1.00844103924
+    val lon_adjustment = 1.01132601933
+
+    LatLon(lat_adjustment * rad2deg(lat), lon_adjustment * rad2deg(lon))
   }
 }
