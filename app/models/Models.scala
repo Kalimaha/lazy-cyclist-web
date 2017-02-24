@@ -12,7 +12,8 @@ object Models {
 
   class ElevationProfile(points: List[XY]) {
     def toEnhancedElevationProfile: EnhancedElevationProfile = {
-      EnhancedElevationProfile(points, climbs, distance, slope)
+      /* TODO: Fix the average slope. */
+      EnhancedElevationProfile(points, climbs, distance, 0)
     }
 
     private def segments = points.sliding(2).toList.map((s: List[XY]) => {
