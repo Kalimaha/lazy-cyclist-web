@@ -33,7 +33,21 @@ object Core {
     val distances: List[Double] = latLons.sliding(2).toList.map((l: List[LatLon]) => distance(l.head, l.last))
     val cumulates               = accumulate(0 :: distances)
 
-    val xys = (latLons zip cumulates).map(p => XY(p._2.toString.toDouble, lleMap.getOrElse(p._1, 0)))
+//    val xys = (latLons zip cumulates).map(p => XY(p._2.toString.toDouble, lleMap.getOrElse(p._1, 0)))
+    val xys = (latLons zip cumulates).map(p => pippo(p, lleMap))
     new ElevationProfile(xys)
+  }
+
+  var previousElevation = 0.0
+
+  def pippo(p: (LatLon, Double), lleMap: Map[LatLon, Double]): XY = {
+    try {
+      previousElevation = lleMap(p._1)
+      return XY(p._2.toString.toDouble, previousElevation)
+    } catch {
+      case _ => {
+        return XY(p._2.toString.toDouble, lleMap.getOrElse(p._1, previousElevation))
+      }
+    }
   }
 }
