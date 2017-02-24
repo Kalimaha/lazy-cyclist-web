@@ -21,6 +21,9 @@ object Router extends Controller {
   def directionsAPIKey(): String = sys.env("DIRECTIONS_API_KEY")
   def elevationAPIKey(): String  = sys.env("ELEVATION_API_KEY")
 
+//  def directionsAPIKey(): String = "AIzaSyDawUXHj6EEm9rdF52YGX102C9GTRyVZJs"
+//  def elevationAPIKey(): String  = "AIzaSyDpqJYbyoCqtjZymDLC2mann1sJUzYObkI"
+
   implicit class RichResult (result: Result) {
     def enableCors =  result.withHeaders(
       "Access-Control-Allow-Origin"       -> "*",
