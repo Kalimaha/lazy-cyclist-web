@@ -28,4 +28,23 @@ class TestMathUtils extends FunSpec {
       assert(accumulate(values) == expected)
     }
   }
+
+  describe(".midpoint") {
+    val a = LatLon(41.9028, 12.4964)
+    val b = LatLon(40.8518, 14.2681)
+    val c = LatLon(41.380696630055574, 13.389407987272127)
+
+    it("calculates the midpoint between two locations") {
+      assert(midpoint(a, b) == c)
+    }
+  }
+
+  describe(".interpolate") {
+    val original_list = List(LatLon(41.9028, 12.4964), LatLon(41.380696630055574, 13.389407987272127), LatLon(40.8518, 14.2681))
+    val expected_list = List(LatLon(41.9028,12.4964), LatLon(41.64261223850071,12.944712890468985), LatLon(41.380696630055574,13.389407987272127), LatLon(41.11708281363663,13.830524015435849), LatLon(40.8518,14.2681))
+
+    it("adds more points to a list of coordinates") {
+      assert(interpolate(original_list).right.get == expected_list)
+    }
+  }
 }

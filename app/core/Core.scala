@@ -10,15 +10,16 @@ import utils.MathUtils._
 object Core {
   def elevationProfile(from: String, to: String, dr: DirectionsRepository, er: ElevationRepository): Either[String, List[EnhancedElevationProfile]] = {
     for {
-      valid             <- validate(from, to).right
-      directionsURL     <- dr.directionsURL(dr.encode(from), dr.encode(to)).right
-      directionsJSON    <- dr.request(directionsURL).right
-      routes            <- toRoutes(directionsJSON).right
-      coordinates       <- routes2coordinates(routes).right
-      elevationURL      <- er.elevationURL(coordinates).right
-      elevationJSON     <- er.request(elevationURL).right
-      latLonElevMap     <- latLonElevMap(elevationJSON).right
-      elevationProfiles <- routes2XYs(routes, latLonElevMap).right
+      valid                 <- validate(from, to).right
+      directionsURL         <- dr.directionsURL(dr.encode(from), dr.encode(to)).right
+      directionsJSON        <- dr.request(directionsURL).right
+      routes                <- toRoutes(directionsJSON).right
+      coordinates           <- routes2coordinates(routes).right
+      expanded_coordinates  <- interpolate(coordinates).right
+      elevationURL          <- er.elevationURL(expanded_coordinates).right
+      elevationJSON         <- er.request(elevationURL).right
+      latLonElevMap         <- latLonElevMap(elevationJSON).right
+      elevationProfiles     <- routes2XYs(routes, latLonElevMap).right
     } yield elevationProfiles.map(_.toEnhancedElevationProfile)
   }
 
