@@ -4,6 +4,7 @@ import models.Models.LatLon
 import models.Models.XY
 
 import scala.annotation.tailrec
+import scala.collection.mutable.ListBuffer
 
 object MathUtils {
   def distance(from: LatLon, to: LatLon): Double = {
@@ -54,9 +55,9 @@ object MathUtils {
     val hyp = Math.sqrt(x * x + y * y)
     val lat = Math.atan2(z, hyp)
 
-    val lat_adjustment = 1.00844103924
-    val lon_adjustment = 1.01132601933
-
-    LatLon(lat_adjustment * rad2deg(lat), lon_adjustment * rad2deg(lon))
+    LatLon(rad2deg(lat), rad2deg(lon))
   }
+
+  def interpolate(l: List[LatLon]): Either[String, List[LatLon]] =
+    Right(l.sliding(2).toList.flatMap(l => List(l.head, midpoint(l.head, l.last), l.last)).distinct)
 }

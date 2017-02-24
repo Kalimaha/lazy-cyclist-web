@@ -8,8 +8,8 @@ import org.json4s.native.JsonMethods._
 object DirectionsParser {
   def toRoutes(rawJSON: String): Either[String, List[Route]] = {
     try {
-      val json = parse(rawJSON)
-      val routes = (json \ Field.ROUTES).asInstanceOf[JArray].arr
+      val json    = parse(rawJSON)
+      val routes  = (json \ Field.ROUTES).asInstanceOf[JArray].arr
 
       Right(routes.flatMap((step: JValue) => toRoute(step)))
     } catch {
